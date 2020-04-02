@@ -38,7 +38,6 @@ public class PetProvider extends ContentProvider {
 		// should recognize. All paths added to the UriMatcher have a corresponding code to return
 		// when a match is found.
 
-		// TODO: Add 2 content URIs to URI matcher
 		sUriMatcher.addURI(PetContract.CONTENT_AUTHORITY, PetContract.PATH_PETS, PETS);
 
 		sUriMatcher.addURI(PetContract.CONTENT_AUTHORITY, PetContract.PATH_PETS + "/#", PET_ID);
@@ -54,7 +53,6 @@ public class PetProvider extends ContentProvider {
 	 */
 	@Override
 	public boolean onCreate() {
-		// TODO: Create and initialize a PetDbHelper object to gain access to the pets database.
 		mDbHelper = new PetDbHelper(getContext());
 		// Make sure the variable is a global variable, so it can be referenced from other
 		// ContentProvider methods.
@@ -80,7 +78,6 @@ public class PetProvider extends ContentProvider {
 				// For the PETS code, query the pets table directly with the given
 				// projection, selection, selection arguments, and sort order. The cursor
 				// could contain multiple rows of the pets table.
-				// TODO: Perform database query on pets table
 				break;
 			case PET_ID:
 				// For the PET_ID code, extract out the ID from the URI.
